@@ -4,26 +4,10 @@ document.body.appendChild(canvas);
 canvas.width = 800;
 canvas.height = 600;
 
-type Enemy = {
-  x: number;
-  y: number;
-  size: number;
-  speed: number;
-};
-
-type Bullet = {
-  x: number;
-  y: number;
-  size: number;
-  speed: number;
-  dx: number;
-  dy: number;
-};
-
-let player: Player = { x: 400, y: 300, size: 20, speed: 4 };
-let enemies: Enemy[] = [];
-let bullets: Bullet[] = [];
-let keys: { [key: string]: boolean } = {};
+let player = { x: 400, y: 300, size: 20, speed: 4 };
+let enemies = [];
+let bullets = [];
+let keys = {};
 
 document.addEventListener("keydown", (e) => (keys[e.key] = true));
 document.addEventListener("keyup", (e) => (keys[e.key] = false));
@@ -46,7 +30,7 @@ function update() {
     bullet.x += bullet.dx * bullet.speed;
     bullet.y += bullet.dy * bullet.speed;
 
-    if (bullet.x < 0  bullet.x > canvas.width  bullet.y < 0 || bullet.y > canvas.height) {
+    if (bullet.x < 0 || bullet.x > canvas.width || bullet.y < 0 || bullet.y > canvas.height) {
       bullets.splice(index, 1);
     }
   });
