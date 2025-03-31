@@ -4,13 +4,6 @@ document.body.appendChild(canvas);
 canvas.width = 800;
 canvas.height = 600;
 
-type Player = {
-  x: number;
-  y: number;
-  size: number;
-  speed: number;
-};
-
 type Enemy = {
   x: number;
   y: number;
